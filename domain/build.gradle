@@ -1,0 +1,19 @@
+apply plugin: 'kotlin'
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
+dependencies {
+    def domainDependencies = rootProject.ext.domainDependencies
+    def domainTestDependencies = rootProject.ext.domainTestDependencies
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation domainDependencies.kotlin
+    implementation domainDependencies.rxJava
+    implementation domainDependencies.rxKotlin
+
+    testImplementation domainTestDependencies.junit
+    testImplementation domainTestDependencies.junitKotlin
+    testImplementation domainTestDependencies.mockito
+    testImplementation domainTestDependencies.mockitoKotlin
+}

@@ -1,0 +1,64 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'dagger.hilt.android.plugin'
+
+android {
+    compileSdkVersion 30
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation project(':domain')
+
+    def dataDependencies = rootProject.ext.dataDependencies
+    def dataTestDependencies = rootProject.ext.dataTestDependencies
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation dataDependencies.kotlin
+    implementation dataDependencies.androidxCore
+    implementation dataDependencies.androidxAppCompat
+    implementation dataDependencies.hilt
+    kapt dataDependencies.hiltCompiler
+    implementation dataDependencies.rxJava
+    implementation dataDependencies.rxKotlin
+    implementation dataDependencies.timber
+    implementation dataDependencies.retrofit
+    implementation dataDependencies.retrofit_converter_gson
+    implementation dataDependencies.retrofit_rxJava3_adapter
+    implementation dataDependencies.gson
+    implementation dataDependencies.okhttpLoggingInterceptor
+
+    //Test
+    testImplementation dataTestDependencies.junit
+    testImplementation dataTestDependencies.junitKotlin
+    testImplementation dataTestDependencies.mockito
+    testImplementation dataTestDependencies.mockitoKotlin
+    androidTestImplementation dataTestDependencies.mockitoAndroid
+    androidTestImplementation dataTestDependencies.testRunner
+    androidTestImplementation dataTestDependencies.androidxTestExt
+    androidTestImplementation dataTestDependencies.espresso
+    androidTestImplementation dataTestDependencies.androidAnnotation
+
+}
