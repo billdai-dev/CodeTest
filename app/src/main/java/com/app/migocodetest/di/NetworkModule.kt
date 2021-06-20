@@ -1,5 +1,7 @@
 package com.app.migocodetest.di
 
+import android.content.Context
+import android.net.ConnectivityManager
 import com.app.migocodetest.BuildConfig
 import com.app.migocodetest.data.data_source.info.InfoApiService
 import com.app.migocodetest.data.network.NetworkManager
@@ -8,6 +10,7 @@ import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import hu.akarnokd.rxjava3.retrofit.RxJava3CallAdapterFactory
 import okhttp3.OkHttpClient
@@ -20,6 +23,12 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
+    @Singleton
+    @Provides
+    fun provideConnectivityManager(@ApplicationContext context: Context): ConnectivityManager {
+        return context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+    }
+
     @Singleton
     @Provides
     fun provideGson(): Gson {
@@ -54,6 +63,7 @@ object NetworkModule {
     fun provideRetrofit(httpClient: OkHttpClient, gson: Gson): Retrofit {
         return Retrofit.Builder()
             .client(httpClient)
+            .baseUrl("https://code-test.migoinc-dev.com/")
             .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
