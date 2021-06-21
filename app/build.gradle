@@ -53,6 +53,7 @@ dependencies {
     implementation appDependencies.constraintLayout
     implementation appDependencies.androidxLifecycleExt
     implementation appDependencies.androidxViewmodel
+    implementation appDependencies.recyclerView
 
     //Hilt
     implementation appDependencies.hilt
