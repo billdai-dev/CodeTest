@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MigoCodeTest</string>
+    <string name="main_apiInfo_text">Status: %1$d \nMessage: %2$s</string>
 </resources>
