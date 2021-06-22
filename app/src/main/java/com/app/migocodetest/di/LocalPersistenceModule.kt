@@ -1,23 +1,22 @@
 package com.app.migocodetest.di
 
-import com.app.migocodetest.data.local_storage.ILocalStorage
-import com.app.migocodetest.data.local_storage.LocalStorage
-import com.app.migocodetest.data.local_storage.pref.IPreferenceManager
-import com.app.migocodetest.data.local_storage.pref.PreferenceManager
-import dagger.Binds
+import android.content.Context
+import androidx.room.Room
+import com.app.migocodetest.data.data_source.AppDatabase
 import dagger.Module
+import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-abstract class LocalPersistenceModule {
+object LocalPersistenceModule {
     @Singleton
-    @Binds
-    abstract fun bindPreferenceManager(preferenceManager: PreferenceManager): IPreferenceManager
-
-    @Singleton
-    @Binds
-    abstract fun bindLocalStorage(localStorage: LocalStorage): ILocalStorage
+    @Provides
+    fun provideAppDatabase(@ApplicationContext context: Context): AppDatabase {
+        return Room.databaseBuilder(context, AppDatabase::class.java, "database")
+            .build()
+    }
 }
