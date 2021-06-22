@@ -84,7 +84,7 @@ class MainActivity : AppCompatActivity(), PassAdapter.Listener {
     }
 
     override fun onActivateBtnClick(pass: PassEntity) {
-        //TODO: Activate pass
+        viewModel.activatePass(pass)
     }
 
     private fun validateInput(binding: ActivityMainBinding) {

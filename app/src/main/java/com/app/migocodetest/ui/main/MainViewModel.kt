@@ -63,4 +63,10 @@ class MainViewModel @Inject constructor(
             .subscribeBy {}
             .addTo(compositeDisposable)
     }
+
+    fun activatePass(pass: PassEntity) {
+        activatePassUseCase(ActivatePassUseCase.Param(pass))
+            .subscribeBy {}
+            .addTo(compositeDisposable)
+    }
 }
