@@ -26,9 +26,16 @@ class WalletLocalDataSource @Inject constructor(private val walletDao: WalletDao
 
         val duration = dto.duration
         val type = PassEntity.PassType.valueOf(dto.type)
-        val timeField =
-            if (type == PassEntity.PassType.Day) Calendar.DAY_OF_MONTH else Calendar.HOUR_OF_DAY
-        calendar.add(timeField, duration)
+        if (type == PassEntity.PassType.Day) {
+            calendar.add(Calendar.DAY_OF_MONTH, duration)
+            calendar.set(Calendar.HOUR_OF_DAY, calendar.getMaximum(Calendar.HOUR_OF_DAY))
+            calendar.set(Calendar.MINUTE, calendar.getMaximum(Calendar.MINUTE))
+            calendar.set(Calendar.SECOND, calendar.getMaximum(Calendar.SECOND))
+            calendar.set(Calendar.MILLISECOND, calendar.getMaximum(Calendar.MILLISECOND))
+        } else {
+            calendar.add(Calendar.HOUR_OF_DAY, duration)
+        }
+
         val expirationTs = calendar.timeInMillis / 1000
 
         return walletDao.activatePass(dto.id, dto.status, activationTs, expirationTs)
