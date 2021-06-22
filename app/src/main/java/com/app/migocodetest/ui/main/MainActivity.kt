@@ -3,6 +3,8 @@ package com.app.migocodetest.ui.main
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.ConcatAdapter
 import com.app.migocodetest.databinding.ActivityMainBinding
 import com.app.migocodetest.domain.entity.wallet.PassEntity
@@ -45,6 +47,7 @@ class MainActivity : AppCompatActivity(), PassAdapter.Listener {
                         else PassEntity.PassType.Hour
 
                     viewModel.addPass(duration, type)
+                    ViewCompat.getWindowInsetsController(root)?.hide(WindowInsetsCompat.Type.ime())
                 }
                 .addTo(compositeDisposable)
 
