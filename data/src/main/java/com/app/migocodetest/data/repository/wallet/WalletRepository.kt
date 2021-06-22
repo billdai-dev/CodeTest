@@ -26,7 +26,7 @@ class WalletRepository @Inject constructor(
         )
     }
 
-    override fun activatePass(id: Int): Single<Unit> {
-        return walletLocalDataSource.activatePass(id, PassEntity.PassStatus.Activated.name)
+    override fun activatePass(entity: PassEntity): Single<Unit> {
+        return walletLocalDataSource.activatePass(passMapper.toDto(entity))
     }
 }

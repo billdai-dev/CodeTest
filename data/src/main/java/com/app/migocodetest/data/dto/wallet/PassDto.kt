@@ -8,7 +8,7 @@ import com.app.migocodetest.domain.entity.wallet.PassEntity
 @Entity(tableName = "passes")
 data class PassDto(
     @PrimaryKey(autoGenerate = true)
-    val id: Int? = null,
+    val id: Int = 0,
     @ColumnInfo
     val duration: Int,
     @ColumnInfo

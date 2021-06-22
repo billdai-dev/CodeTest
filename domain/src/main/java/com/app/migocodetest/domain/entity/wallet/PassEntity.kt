@@ -1,7 +1,7 @@
 package com.app.migocodetest.domain.entity.wallet
 
 data class PassEntity(
-    val id: Int? = null,
+    val id: Int = 0,
     val duration: Int,
     val type: PassType,
     val status: PassStatus,

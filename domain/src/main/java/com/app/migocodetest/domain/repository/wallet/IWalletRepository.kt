@@ -9,5 +9,5 @@ interface IWalletRepository {
 
     fun addPass(type: PassEntity.PassType, duration: Int): Single<Unit>
 
-    fun activatePass(id: Int): Single<Unit>
+    fun activatePass(entity: PassEntity): Single<Unit>
 }

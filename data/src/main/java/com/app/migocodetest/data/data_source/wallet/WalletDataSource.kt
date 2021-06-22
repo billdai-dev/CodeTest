@@ -9,5 +9,5 @@ interface WalletDataSource {
 
     fun addPass(type: String, duration: Int, status: String): Single<Unit>
 
-    fun activatePass(id: Int, status: String): Single<Unit>
+    fun activatePass(dto: PassDto): Single<Unit>
 }
