@@ -49,7 +49,9 @@ class PassAdapter(private val listener: Listener) :
 
             with(btnActivate) {
                 val isActivated = pass.activationTimestamp != null
-                val isExpired = pass.expirationTimestamp ?: 0 > System.currentTimeMillis() / 1000
+                val expirationTs = pass.expirationTimestamp
+                val isExpired =
+                    expirationTs != null && expirationTs < System.currentTimeMillis() / 1000
                 when {
                     isExpired -> {
                         isEnabled = false
