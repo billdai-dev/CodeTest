@@ -49,6 +49,9 @@ dependencies {
     implementation dataDependencies.retrofit_rxJava3_adapter
     implementation dataDependencies.gson
     implementation dataDependencies.okhttpLoggingInterceptor
+    implementation dataDependencies.room
+    kapt dataDependencies.roomCompiler
+    implementation dataDependencies.roomRxJava3
 
     //Test
     testImplementation dataTestDependencies.junit

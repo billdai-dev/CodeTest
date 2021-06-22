@@ -25,6 +25,7 @@ ext {
     retrofitRxJava3Adapter = '3.0.0'
     gson = '2.8.6'
     okhttp_logging_interceptor = '4.9.0'
+    room = '2.3.0'
 
 
     //Testing
@@ -72,7 +73,9 @@ ext {
             rxAndroid               : "io.reactivex.rxjava3:rxandroid:$rxAndroid",
             rxBinding               : "com.jakewharton.rxbinding4:rxbinding:$rxBinding",
             rxBindingCore           : "com.jakewharton.rxbinding4:rxbinding-core:$rxBinding",
-            timber                  : "com.jakewharton.timber:timber:$timber"
+            timber                  : "com.jakewharton.timber:timber:$timber",
+            room                    : "androidx.room:room-runtime:$room",
+            roomCompiler            : "androidx.room:room-compiler:$room"
     ]
 
     presentationTestDependencies = [
@@ -102,7 +105,10 @@ ext {
             retrofit_converter_gson : "com.squareup.retrofit2:converter-gson:$retrofit",
             retrofit_rxJava3_adapter: "com.github.akarnokd:rxjava3-retrofit-adapter:$retrofitRxJava3Adapter",
             gson                    : "com.google.code.gson:gson:$gson",
-            okhttpLoggingInterceptor: "com.squareup.okhttp3:logging-interceptor:$okhttp_logging_interceptor"
+            okhttpLoggingInterceptor: "com.squareup.okhttp3:logging-interceptor:$okhttp_logging_interceptor",
+            room                    : "androidx.room:room-runtime:$room",
+            roomCompiler            : "androidx.room:room-compiler:$room",
+            roomRxJava3             : "androidx.room:room-rxjava3:$room"
     ]
 
     dataTestDependencies = [

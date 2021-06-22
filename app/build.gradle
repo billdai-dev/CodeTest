@@ -78,6 +78,10 @@ dependencies {
     //Timber
     implementation appDependencies.timber
 
+    //Room
+    implementation dataDependencies.room
+    kapt dataDependencies.roomCompiler
+
     //Test
     //Hilt
     testImplementation appTestDependencies.hilt
