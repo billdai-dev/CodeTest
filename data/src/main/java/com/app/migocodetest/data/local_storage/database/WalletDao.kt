@@ -1,4 +1,4 @@
-package com.app.migocodetest.data.data_source.pass
+package com.app.migocodetest.data.local_storage.database
 
 import androidx.room.Dao
 import androidx.room.Insert

@@ -2,7 +2,7 @@ package com.app.migocodetest.di
 
 import android.content.Context
 import androidx.room.Room
-import com.app.migocodetest.data.data_source.AppDatabase
+import com.app.migocodetest.data.local_storage.database.AppDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
