@@ -45,16 +45,17 @@ class PassAdapter(private val listener: Listener) :
                     R.string.wallet_pass_type_hour,
                     duration
                 )
+                else -> ""
             }
 
             btnBuy.setOnClickListener {
-                listener.onBuyBtnClick(pass.id)
+                listener.onBuyBtnClick(pass)
             }
         }
     }
 
     interface Listener {
-        fun onBuyBtnClick(id: Int)
+        fun onBuyBtnClick(pass: PassEntity)
     }
 
     private companion object {

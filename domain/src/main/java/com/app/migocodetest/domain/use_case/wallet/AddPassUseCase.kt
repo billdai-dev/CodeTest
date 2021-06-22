@@ -5,7 +5,7 @@ import com.app.migocodetest.domain.repository.wallet.IWalletRepository
 import io.reactivex.rxjava3.core.Single
 
 class AddPassUseCase(private val walletRepository: IWalletRepository) {
-    operator fun invoke(param: Param): Single<PassEntity> {
+    operator fun invoke(param: Param): Single<Long> {
         return walletRepository.addPass(param.passType, param.duration)
     }
 

@@ -7,7 +7,7 @@ import io.reactivex.rxjava3.core.Single
 interface IWalletRepository {
     fun getPassList(): Flowable<List<PassEntity>>
 
-    fun addPass(type: PassEntity.PassType, duration: Int): Single<PassEntity>
+    fun addPass(type: PassEntity.PassType, duration: Int): Single<Long>
 
-    fun activatePass(id: Int): Single<PassEntity>
+    fun activatePass(entity: PassEntity): Single<Unit>
 }

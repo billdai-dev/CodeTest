@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity(), PassAdapter.Listener {
         }
     }
 
-    override fun onBuyBtnClick(id: Int) {
+    override fun onBuyBtnClick(pass: PassEntity) {
         //TODO: Buy pass
     }
 }

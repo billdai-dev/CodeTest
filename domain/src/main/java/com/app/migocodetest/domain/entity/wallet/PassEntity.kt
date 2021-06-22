@@ -1,11 +1,11 @@
 package com.app.migocodetest.domain.entity.wallet
 
 data class PassEntity(
-    val id: Int,
-    val duration: Int,
-    val type: PassType,
-    val status: PassStatus,
-    val insertionTimestamp: Long,
+    val id: Int? = null,
+    val duration: Int? = null,
+    val type: PassType? = null,
+    val status: PassStatus? = null,
+    val insertionTimestamp: Long? = null,
     val activationTimestamp: Long? = null,
     val expirationTimestamp: Long? = null
 ) {
