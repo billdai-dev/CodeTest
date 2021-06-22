@@ -22,21 +22,10 @@
             android:textColor="@color/black"
             android:textSize="@dimen/tv_wallet_pass_type"
             android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/btn_buy"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="1 DAY PASS" />
-
-        <TextView
-            android:id="@+id/tv_desc"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/wallet_pass_margin"
-            android:textColor="@color/black"
-            android:textSize="@dimen/tv_wallet_pass_desc"
-            app:layout_constraintEnd_toEndOf="@+id/tv_passType"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_passType"
             tools:text="1 DAY PASS" />
 
         <Button
@@ -44,11 +33,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/white"
-            android:text="@string/wallet_pass_buy"
+            android:padding="@dimen/wallet_pass_padding"
             android:textColor="@color/black"
             android:textSize="@dimen/btn_wallet_pass_buy"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/wallet_pass_activate" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

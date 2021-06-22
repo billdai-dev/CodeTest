@@ -30,8 +30,7 @@ class PassAdapter(private val listener: Listener) :
     inner class ViewHolder(binding: ItemPassBinding) :
         RecyclerView.ViewHolder(binding.root) {
         private val tvType: TextView = binding.tvPassType
-        private val tvDesc: TextView = binding.tvDesc
-        private val btnBuy: Button = binding.btnBuy
+        private val btnActivate: Button = binding.btnBuy
 
         fun initView(pass: PassEntity) {
             val context = tvType.context
@@ -48,14 +47,33 @@ class PassAdapter(private val listener: Listener) :
                 else -> ""
             }
 
-            btnBuy.setOnClickListener {
-                listener.onBuyBtnClick(pass)
+            with(btnActivate) {
+                val isActivated = pass.activationTimestamp != null
+                val isExpired = pass.expirationTimestamp ?: 0 > System.currentTimeMillis() / 1000
+                when {
+                    isExpired -> {
+                        isEnabled = false
+                        text = context.getString(R.string.wallet_pass_expired)
+                    }
+                    isActivated -> {
+                        isEnabled = false
+                        text = context.getString(R.string.wallet_pass_activated)
+                    }
+                    else -> {
+                        isEnabled = true
+                        text = context.getString(R.string.wallet_pass_activate)
+                    }
+                }
+
+                setOnClickListener {
+                    listener.onActivateBtnClick(pass)
+                }
             }
         }
     }
 
     interface Listener {
-        fun onBuyBtnClick(pass: PassEntity)
+        fun onActivateBtnClick(pass: PassEntity)
     }
 
     private companion object {
