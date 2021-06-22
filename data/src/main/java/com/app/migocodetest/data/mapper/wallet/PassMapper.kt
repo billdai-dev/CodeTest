@@ -13,8 +13,8 @@ class PassMapper @Inject constructor() : Mapper<PassEntity, PassDto> {
             type = entity.type.name,
             status = entity.status.name,
             insertionTimestamp = entity.insertionTimestamp,
-            activationTimestamp = entity.insertionTimestamp,
-            expirationTimestamp = entity.insertionTimestamp
+            activationTimestamp = entity.activationTimestamp,
+            expirationTimestamp = entity.expirationTimestamp
         )
     }
 
@@ -25,8 +25,8 @@ class PassMapper @Inject constructor() : Mapper<PassEntity, PassDto> {
             type = PassEntity.PassType.valueOf(dto.type),
             status = PassEntity.PassStatus.valueOf(dto.status),
             insertionTimestamp = dto.insertionTimestamp,
-            activationTimestamp = dto.insertionTimestamp,
-            expirationTimestamp = dto.insertionTimestamp
+            activationTimestamp = dto.activationTimestamp,
+            expirationTimestamp = dto.expirationTimestamp
         )
     }
 }
