@@ -1,6 +1,6 @@
 package com.app.migocodetest.data.data_source.info
 
-import com.app.migocodetest.data.dto.InfoDto
+import com.app.migocodetest.data.dto.info.InfoDto
 import io.reactivex.rxjava3.core.Single
 import retrofit2.http.GET
 

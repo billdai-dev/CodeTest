@@ -1,6 +1,6 @@
 package com.app.migocodetest.data.mapper.info
 
-import com.app.migocodetest.data.dto.InfoDto
+import com.app.migocodetest.data.dto.info.InfoDto
 import com.app.migocodetest.data.mapper.Mapper
 import com.app.migocodetest.domain.entity.info.InfoEntity
 import javax.inject.Inject
