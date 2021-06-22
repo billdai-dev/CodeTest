@@ -20,12 +20,13 @@ class WalletRepository @Inject constructor(
         }
     }
 
-    override fun addPass(type: PassEntity.PassType, duration: Int): Single<Long> {
-        val entity = PassEntity(type = type, duration = duration)
-        return walletLocalDataSource.addPass(passMapper.toDto(entity))
+    override fun addPass(type: PassEntity.PassType, duration: Int): Single<Unit> {
+        return walletLocalDataSource.addPass(
+            type.name, duration, PassEntity.PassStatus.Inactivated.name
+        )
     }
 
-    override fun activatePass(entity: PassEntity): Single<Unit> {
-        return walletLocalDataSource.activatePass(passMapper.toDto(entity))
+    override fun activatePass(id: Int): Single<Unit> {
+        return walletLocalDataSource.activatePass(id, PassEntity.PassStatus.Activated.name)
     }
 }

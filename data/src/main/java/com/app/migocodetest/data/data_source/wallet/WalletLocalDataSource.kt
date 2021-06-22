@@ -13,11 +13,12 @@ class WalletLocalDataSource @Inject constructor(private val walletDao: WalletDao
         return walletDao.getAllPass().subscribeOn(Schedulers.io())
     }
 
-    override fun addPass(passDto: PassDto): Single<Long> {
-        return walletDao.addPass(passDto).subscribeOn(Schedulers.io())
+    override fun addPass(type: String, duration: Int, status: String): Single<Unit> {
+        return walletDao.addPass(duration, type, status)
+            .subscribeOn(Schedulers.io())
     }
 
-    override fun activatePass(passDto: PassDto): Single<Unit> {
-        return walletDao.updatePass(passDto).subscribeOn(Schedulers.io())
+    override fun activatePass(id: Int, status: String): Single<Unit> {
+        return walletDao.activatePass(id, status,).subscribeOn(Schedulers.io())
     }
 }

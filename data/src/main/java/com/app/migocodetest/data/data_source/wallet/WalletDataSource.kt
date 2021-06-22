@@ -7,7 +7,7 @@ import io.reactivex.rxjava3.core.Single
 interface WalletDataSource {
     fun getAllPass(): Flowable<List<PassDto>>
 
-    fun addPass(passDto: PassDto): Single<Long>
+    fun addPass(type: String, duration: Int, status: String): Single<Unit>
 
-    fun activatePass(passDto: PassDto): Single<Unit>
+    fun activatePass(id: Int, status: String): Single<Unit>
 }

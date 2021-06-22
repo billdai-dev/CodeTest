@@ -10,12 +10,12 @@ data class PassDto(
     @PrimaryKey(autoGenerate = true)
     val id: Int? = null,
     @ColumnInfo
-    val duration: Int? = null,
+    val duration: Int,
     @ColumnInfo
-    val type: String? = null,
+    val type: String,
     @ColumnInfo
-    val status: String? = null,
-    @ColumnInfo(defaultValue = "CURRENT_TIMESTAMP")
+    val status: String,
+    @ColumnInfo
     val insertionTimestamp: Long? = null,
     @ColumnInfo
     val activationTimestamp: Long? = null,
