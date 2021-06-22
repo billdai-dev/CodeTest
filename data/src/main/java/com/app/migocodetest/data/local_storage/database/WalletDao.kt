@@ -4,7 +4,6 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
-import com.app.migocodetest.data.dto.info.InfoDto
 import com.app.migocodetest.data.dto.wallet.PassDto
 import io.reactivex.rxjava3.core.Flowable
 import io.reactivex.rxjava3.core.Single
@@ -18,5 +17,5 @@ interface WalletDao {
     fun addPass(pass: PassDto): Single<Long>
 
     @Update
-    fun updateUsers(activatedPass: PassDto): Single<Unit>
+    fun updatePass(pass: PassDto): Single<Unit>
 }
