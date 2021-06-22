@@ -10,6 +10,7 @@
         android:id="@+id/tv_type"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/wallet_pass_margin"
         android:textColor="@color/black"
         android:textSize="@dimen/tv_wallet_passType"
         app:layout_constraintEnd_toEndOf="parent"

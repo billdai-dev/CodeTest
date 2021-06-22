@@ -9,4 +9,5 @@
     <dimen name="wallet_pass_margin">8dp</dimen>
     <dimen name="wallet_pass_padding">8dp</dimen>
     <dimen name="cv_wallet_pass_radius">4dp</dimen>
+    <dimen name="cv_wallet_pass_elevation">4dp</dimen>
 </resources>

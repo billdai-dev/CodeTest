@@ -8,6 +8,7 @@
     android:layout_marginTop="@dimen/wallet_pass_margin"
     app:cardBackgroundColor="@color/cv_wallet_bg"
     app:cardCornerRadius="@dimen/cv_wallet_pass_radius"
+    app:cardElevation="@dimen/cv_wallet_pass_elevation"
     app:contentPadding="@dimen/wallet_pass_padding">
 
     <androidx.constraintlayout.widget.ConstraintLayout
