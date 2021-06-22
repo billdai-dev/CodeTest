@@ -14,6 +14,7 @@ ext {
     androidxLifecycle = '2.2.0'
     constraintLayout = '2.0.4'
     recyclerView = '1.2.1'
+    cardView = '1.0.0'
     hilt = '2.37'
     rxJava = '3.0.3'
     rxKotlin = '3.0.0'
@@ -50,41 +51,42 @@ ext {
     ]
 
     presentationDependencies = [
-            kotlin                     : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version",
-            androidxCore               : "androidx.core:core-ktx:$androidxCore",
-            androidxFragmentKtx        : "androidx.fragment:fragment-ktx:$androidxFragmentKtx",
-            androidxAppCompat          : "androidx.appcompat:appcompat:$androidx",
-            constraintLayout           : "androidx.constraintlayout:constraintlayout:$constraintLayout",
-            androidxLifecycleExt       : "androidx.lifecycle:lifecycle-extensions:$androidxLifecycle",
-            androidxViewmodel          : "androidx.lifecycle:lifecycle-viewmodel-ktx:$androidxLifecycle",
-            recyclerView               : "androidx.recyclerview:recyclerview:$recyclerView",
-            hilt                       : "com.google.dagger:hilt-android:$hilt",
-            hiltCompiler               : "com.google.dagger:hilt-android-compiler:$hilt",
-            retrofit                   : "com.squareup.retrofit2:retrofit:$retrofit",
-            retrofit_converter_gson    : "com.squareup.retrofit2:converter-gson:$retrofit",
-            retrofit_rxJava3_adapter   : "com.github.akarnokd:rxjava3-retrofit-adapter:$retrofitRxJava3Adapter",
-            gson                       : "com.google.code.gson:gson:$gson",
-            okhttpLoggingInterceptor   : "com.squareup.okhttp3:logging-interceptor:$okhttp_logging_interceptor",
-            rxJava                     : "io.reactivex.rxjava3:rxjava:$rxJava",
-            rxKotlin                   : "io.reactivex.rxjava3:rxkotlin:$rxKotlin",
-            rxAndroid                  : "io.reactivex.rxjava3:rxandroid:$rxAndroid",
-            rxBinding                  : "com.jakewharton.rxbinding4:rxbinding:$rxBinding",
-            rxBindingCore              : "com.jakewharton.rxbinding4:rxbinding-core:$rxBinding",
-            timber                     : "com.jakewharton.timber:timber:$timber"
+            kotlin                  : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version",
+            androidxCore            : "androidx.core:core-ktx:$androidxCore",
+            androidxFragmentKtx     : "androidx.fragment:fragment-ktx:$androidxFragmentKtx",
+            androidxAppCompat       : "androidx.appcompat:appcompat:$androidx",
+            constraintLayout        : "androidx.constraintlayout:constraintlayout:$constraintLayout",
+            androidxLifecycleExt    : "androidx.lifecycle:lifecycle-extensions:$androidxLifecycle",
+            androidxViewmodel       : "androidx.lifecycle:lifecycle-viewmodel-ktx:$androidxLifecycle",
+            recyclerView            : "androidx.recyclerview:recyclerview:$recyclerView",
+            cardView                : "androidx.cardview:cardview:$cardView",
+            hilt                    : "com.google.dagger:hilt-android:$hilt",
+            hiltCompiler            : "com.google.dagger:hilt-android-compiler:$hilt",
+            retrofit                : "com.squareup.retrofit2:retrofit:$retrofit",
+            retrofit_converter_gson : "com.squareup.retrofit2:converter-gson:$retrofit",
+            retrofit_rxJava3_adapter: "com.github.akarnokd:rxjava3-retrofit-adapter:$retrofitRxJava3Adapter",
+            gson                    : "com.google.code.gson:gson:$gson",
+            okhttpLoggingInterceptor: "com.squareup.okhttp3:logging-interceptor:$okhttp_logging_interceptor",
+            rxJava                  : "io.reactivex.rxjava3:rxjava:$rxJava",
+            rxKotlin                : "io.reactivex.rxjava3:rxkotlin:$rxKotlin",
+            rxAndroid               : "io.reactivex.rxjava3:rxandroid:$rxAndroid",
+            rxBinding               : "com.jakewharton.rxbinding4:rxbinding:$rxBinding",
+            rxBindingCore           : "com.jakewharton.rxbinding4:rxbinding-core:$rxBinding",
+            timber                  : "com.jakewharton.timber:timber:$timber"
     ]
 
     presentationTestDependencies = [
-            hilt                 : "com.google.dagger:hilt-android:$hilt",
-            hiltCompiler         : "com.google.dagger:hilt-android-compiler:$hilt",
-            junit                : "junit:junit:$jUnit",
-            junitKotlin          : "org.jetbrains.kotlin:kotlin-test-junit:$jUnitKotlin",
-            mockito              : "org.mockito:mockito-core:$mockito",
-            mockitoKotlin        : "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockitoKotlin",
-            mockitoAndroid       : "org.mockito:mockito-android:$mockitoAndroid",
-            testRunner           : "androidx.test:runner:$runner",
-            androidxTestExt      : "androidx.test.ext:junit:$androidxTestExt",
-            espresso             : "androidx.test.espresso:espresso-core:$espresso",
-            androidAnnotation    : "androidx.annotation:annotation:$androidAnnotation"
+            hilt             : "com.google.dagger:hilt-android:$hilt",
+            hiltCompiler     : "com.google.dagger:hilt-android-compiler:$hilt",
+            junit            : "junit:junit:$jUnit",
+            junitKotlin      : "org.jetbrains.kotlin:kotlin-test-junit:$jUnitKotlin",
+            mockito          : "org.mockito:mockito-core:$mockito",
+            mockitoKotlin    : "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockitoKotlin",
+            mockitoAndroid   : "org.mockito:mockito-android:$mockitoAndroid",
+            testRunner       : "androidx.test:runner:$runner",
+            androidxTestExt  : "androidx.test.ext:junit:$androidxTestExt",
+            espresso         : "androidx.test.espresso:espresso-core:$espresso",
+            androidAnnotation: "androidx.annotation:annotation:$androidAnnotation"
     ]
 
     dataDependencies = [

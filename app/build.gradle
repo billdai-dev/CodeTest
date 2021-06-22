@@ -54,6 +54,7 @@ dependencies {
     implementation appDependencies.androidxLifecycleExt
     implementation appDependencies.androidxViewmodel
     implementation appDependencies.recyclerView
+    implementation appDependencies.cardView
 
     //Hilt
     implementation appDependencies.hilt

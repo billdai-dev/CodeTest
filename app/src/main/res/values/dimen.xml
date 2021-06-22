@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="tv_wallet_passType">18sp</dimen>
+    <dimen name="wallet_passType_padding">16dp</dimen>
+
+    <dimen name="tv_wallet_pass_type">20sp</dimen>
+    <dimen name="tv_wallet_pass_desc">14sp</dimen>
+    <dimen name="btn_wallet_pass_buy">18sp</dimen>
+    <dimen name="wallet_pass_margin">8dp</dimen>
+    <dimen name="wallet_pass_padding">8dp</dimen>
+    <dimen name="cv_wallet_pass_radius">4dp</dimen>
+</resources>

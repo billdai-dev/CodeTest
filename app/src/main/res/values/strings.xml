@@ -1,4 +1,12 @@
 <resources>
     <string name="app_name">MigoCodeTest</string>
     <string name="main_apiInfo_text">Status: %1$d \nMessage: %2$s</string>
+
+    <!--Wallet-->
+    <string name="wallet_pass_buy">BUY</string>
+    <string name="wallet_passType_day">DAY PASS</string>
+    <string name="wallet_passType_hour">HOUR PASS</string>
+
+    <string name="wallet_pass_type_day">%1$d DAY PASS</string>
+    <string name="wallet_pass_type_hour">%1$d HOUR PASS</string>
 </resources>
