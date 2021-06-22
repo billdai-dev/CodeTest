@@ -3,6 +3,7 @@
     <string name="main_apiInfo_text">Status: %1$d \nMessage: %2$s</string>
 
     <!--Wallet-->
+    <string name="wallet_pass_add">Add</string>
     <string name="wallet_pass_activate">Activate</string>
     <string name="wallet_pass_activated">Activated</string>
     <string name="wallet_pass_expired">Expired</string>

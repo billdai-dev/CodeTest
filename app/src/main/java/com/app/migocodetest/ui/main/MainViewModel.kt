@@ -1,6 +1,7 @@
 package com.app.migocodetest.ui.main
 
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.app.migocodetest.domain.entity.info.InfoEntity
@@ -28,10 +29,20 @@ class MainViewModel @Inject constructor(
     val apiStatus: LiveData<InfoEntity> = _apiStatus
 
     private val _passList = MutableLiveData<List<PassEntity>>()
-    val passList: LiveData<List<PassEntity>> = _passList
+    private val _dayPasses = MediatorLiveData<List<PassEntity>>()
+    val dayPasses: LiveData<List<PassEntity>> = _dayPasses
+    private val _hourPasses = MediatorLiveData<List<PassEntity>>()
+    val hourPasses: LiveData<List<PassEntity>> = _hourPasses
 
 
     init {
+        _dayPasses.addSource(_passList) {
+            _dayPasses.postValue(it.filter { it.type == PassEntity.PassType.Day })
+        }
+        _hourPasses.addSource(_passList) {
+            _hourPasses.postValue(it.filter { it.type == PassEntity.PassType.Hour })
+        }
+
         getInfoUseCase()
             .subscribeBy { _apiStatus.postValue(it) }
             .addTo(compositeDisposable)
@@ -45,5 +56,11 @@ class MainViewModel @Inject constructor(
     override fun onCleared() {
         super.onCleared()
         compositeDisposable.dispose()
+    }
+
+    fun addPass(duration: Int, type: PassEntity.PassType) {
+        addPassUseCase(AddPassUseCase.Param(type, duration))
+            .subscribeBy {}
+            .addTo(compositeDisposable)
     }
 }
