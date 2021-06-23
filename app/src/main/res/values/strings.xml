@@ -12,4 +12,6 @@
 
     <string name="wallet_pass_type_day">%1$d DAY PASS</string>
     <string name="wallet_pass_type_hour">%1$d HOUR PASS</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -1,72 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/et_passDuration"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/wallet_pass_margin"
-        android:imeOptions="actionDone"
-        android:inputType="number"
-        app:layout_constraintEnd_toStartOf="@+id/rg_passType"
-        app:layout_constraintHorizontal_weight="1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="1" />
-
-    <RadioGroup
-        android:id="@+id/rg_passType"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/wallet_pass_margin"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="@+id/btn_addPass"
-        app:layout_constraintEnd_toStartOf="@+id/btn_addPass"
-        app:layout_constraintStart_toEndOf="@+id/et_passDuration"
-        app:layout_constraintTop_toTopOf="@+id/btn_addPass">
-
-        <RadioButton
-            android:id="@+id/rb_dayPass"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/wallet_passType_day" />
-
-        <RadioButton
-            android:id="@+id/rb_hourPass"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/wallet_passType_hour" />
-    </RadioGroup>
-
-    <Button
-        android:id="@+id/btn_addPass"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/wallet_pass_margin"
-        android:enabled="false"
-        android:padding="@dimen/wallet_pass_padding"
-        android:text="@string/wallet_pass_add"
-        android:textAllCaps="false"
-        android:textColor="@color/black"
-        android:textSize="@dimen/btn_wallet_pass_buy"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_main"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fcv_main"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="@dimen/wallet_pass_margin"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_addPass" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -17,7 +17,7 @@ import io.reactivex.rxjava3.kotlin.subscribeBy
 import javax.inject.Inject
 
 @HiltViewModel
-class MainViewModel @Inject constructor(
+class MainActivityViewModel @Inject constructor(
     private val getInfoUseCase: GetInfoUseCase,
     private val getPassListObservableUseCase: GetPassListObservableUseCase,
     private val addPassUseCase: AddPassUseCase,
