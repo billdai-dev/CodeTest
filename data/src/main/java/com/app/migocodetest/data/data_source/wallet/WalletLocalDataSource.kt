@@ -22,7 +22,7 @@ class WalletLocalDataSource @Inject constructor(private val walletDao: WalletDao
 
     override fun activatePass(dto: PassDto): Single<Unit> {
         val calendar = Calendar.getInstance()
-        val activationTs = calendar.timeInMillis / 1000
+        val activationTs = calendar.timeInMillis
 
         val duration = dto.duration
         val type = PassEntity.PassType.valueOf(dto.type)
@@ -36,7 +36,7 @@ class WalletLocalDataSource @Inject constructor(private val walletDao: WalletDao
             calendar.add(Calendar.HOUR_OF_DAY, duration)
         }
 
-        val expirationTs = calendar.timeInMillis / 1000
+        val expirationTs = calendar.timeInMillis
 
         return walletDao.activatePass(dto.id, dto.status, activationTs, expirationTs)
             .subscribeOn(Schedulers.io())

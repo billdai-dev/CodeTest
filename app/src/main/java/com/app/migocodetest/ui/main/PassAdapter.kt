@@ -51,7 +51,7 @@ class PassAdapter(private val listener: Listener) :
                 val isActivated = pass.activationTimestamp != null
                 val expirationTs = pass.expirationTimestamp
                 val isExpired =
-                    expirationTs != null && expirationTs < System.currentTimeMillis() / 1000
+                    expirationTs != null && expirationTs < System.currentTimeMillis()
                 when {
                     isExpired -> {
                         isEnabled = false

@@ -17,7 +17,7 @@ interface WalletDao {
         duration: Int,
         type: String,
         status: String,
-        createdAt: Long = Date().time / 1000
+        createdAt: Long = Date().time
     ): Single<Unit>
 
     @Query("UPDATE passes SET status = :status," +
