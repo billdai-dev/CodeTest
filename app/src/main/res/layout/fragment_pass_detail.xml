@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingHorizontal="@dimen/wallet_pass_padding"
+    android:paddingTop="@dimen/wallet_pass_padding">
+
+    <include
+        android:id="@+id/v_pass"
+        layout="@layout/item_pass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <include
+        android:id="@+id/v_status"
+        layout="@layout/item_pass_text_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/wallet_pass_margin" />
+
+    <include
+        android:id="@+id/v_insertionTime"
+        layout="@layout/item_pass_text_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/wallet_pass_margin" />
+
+    <include
+        android:id="@+id/v_activationTime"
+        layout="@layout/item_pass_text_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/wallet_pass_margin" />
+
+    <include
+        android:id="@+id/v_expirationTime"
+        layout="@layout/item_pass_text_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/wallet_pass_margin" />
+</LinearLayout>

@@ -6,12 +6,18 @@
     <string name="wallet_pass_add">Add</string>
     <string name="wallet_pass_activate">Activate</string>
     <string name="wallet_pass_activated">Activated</string>
+    <string name="wallet_pass_inactivated">Inactivated</string>
     <string name="wallet_pass_expired">Expired</string>
     <string name="wallet_passType_day">DAY PASS</string>
     <string name="wallet_passType_hour">HOUR PASS</string>
 
     <string name="wallet_pass_type_day">%1$d DAY PASS</string>
     <string name="wallet_pass_type_hour">%1$d HOUR PASS</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!--PassDetail-->
+    <string name="passDetail_key_status">Status:</string>
+    <string name="passDetail_key_insertionTime">Insertion time:</string>
+    <string name="passDetail_key_activationTime">Activation time:</string>
+    <string name="passDetail_key_expirationTime">Expiration time:</string>
+    <string name="passDetail_value_na">N/A</string>
 </resources>

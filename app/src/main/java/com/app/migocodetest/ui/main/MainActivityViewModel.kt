@@ -29,6 +29,7 @@ class MainActivityViewModel @Inject constructor(
     val apiStatus: LiveData<InfoEntity> = _apiStatus
 
     private val _passList = MutableLiveData<List<PassEntity>>()
+    val passList: LiveData<List<PassEntity>> = _passList
     private val _dayPasses = MediatorLiveData<List<PassEntity>>()
     val dayPasses: LiveData<List<PassEntity>> = _dayPasses
     private val _hourPasses = MediatorLiveData<List<PassEntity>>()
