@@ -47,6 +47,10 @@ class PassAdapter(private val listener: Listener) :
                 else -> ""
             }
 
+            itemView.setOnClickListener {
+                listener.onPassClick(pass.id)
+            }
+
             with(btnActivate) {
                 val isActivated = pass.activationTimestamp != null
                 val expirationTs = pass.expirationTimestamp
@@ -75,6 +79,8 @@ class PassAdapter(private val listener: Listener) :
     }
 
     interface Listener {
+        fun onPassClick(passId: Int)
+
         fun onActivateBtnClick(pass: PassEntity)
     }
 

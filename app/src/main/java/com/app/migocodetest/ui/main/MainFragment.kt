@@ -1,5 +1,6 @@
 package com.app.migocodetest.ui.main
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -24,6 +25,7 @@ import java.util.concurrent.TimeUnit
 @AndroidEntryPoint
 class MainFragment : Fragment(), PassAdapter.Listener {
     private var binding: FragmentMainBinding? = null
+    private var listener: Listener? = null
     private val viewModel by activityViewModels<MainActivityViewModel>()
     private val compositeDisposable = CompositeDisposable()
     private val apiInfoAdapter by lazy { ApiInfoAdapter() }
@@ -32,6 +34,11 @@ class MainFragment : Fragment(), PassAdapter.Listener {
     private val hourPassTypeAdapter by lazy { PassTypeAdapter(PassEntity.PassType.Hour) }
     private val hourPassAdapter by lazy { PassAdapter(this) }
     private val mainAdapter by lazy { ConcatAdapter(apiInfoAdapter) }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        listener = context as? Listener
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -96,6 +103,10 @@ class MainFragment : Fragment(), PassAdapter.Listener {
         super.onDestroyView()
     }
 
+    override fun onPassClick(passId: Int) {
+        listener?.onPassClick(passId)
+    }
+
     override fun onActivateBtnClick(pass: PassEntity) {
         viewModel.activatePass(pass)
     }
@@ -110,6 +121,10 @@ class MainFragment : Fragment(), PassAdapter.Listener {
                 .subscribeBy { btnAddPass.isEnabled = it }
                 .addTo(compositeDisposable)
         }
+    }
+
+    interface Listener {
+        fun onPassClick(passId: Int)
     }
 
     companion object {
