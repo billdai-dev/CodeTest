@@ -22,7 +22,7 @@ class PassDetailFragment : Fragment() {
     private val activityViewModel by activityViewModels<MainActivityViewModel>()
     private val viewModel by viewModels<PassDetailViewModel>()
     private val sdf: SimpleDateFormat by lazy {
-        SimpleDateFormat("yyyy-MM-dd hh:mm:ss", Locale.getDefault())
+        SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault())
     }
 
     override fun onCreateView(
