@@ -1,11 +1,9 @@
 package com.app.migocodetest.ui.main
 
-import android.net.ConnectivityManager
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.app.migocodetest.domain.entity.info.InfoEntity
 import com.app.migocodetest.domain.entity.wallet.PassEntity
 import com.app.migocodetest.domain.use_case.info.GetInfoUseCase
 import com.app.migocodetest.domain.use_case.wallet.ActivatePassUseCase
@@ -13,13 +11,13 @@ import com.app.migocodetest.domain.use_case.wallet.AddPassUseCase
 import com.app.migocodetest.domain.use_case.wallet.GetPassListObservableUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.reactivex.rxjava3.disposables.CompositeDisposable
+import io.reactivex.rxjava3.disposables.Disposable
 import io.reactivex.rxjava3.kotlin.addTo
 import io.reactivex.rxjava3.kotlin.subscribeBy
 import javax.inject.Inject
 
 @HiltViewModel
 class MainActivityViewModel @Inject constructor(
-    private val connectivityManager: ConnectivityManager,
     private val getInfoUseCase: GetInfoUseCase,
     private val getPassListObservableUseCase: GetPassListObservableUseCase,
     private val addPassUseCase: AddPassUseCase,
@@ -27,8 +25,8 @@ class MainActivityViewModel @Inject constructor(
 ) : ViewModel() {
     private val compositeDisposable = CompositeDisposable()
 
-    private val _apiStatus = MutableLiveData<InfoEntity>()
-    val apiStatus: LiveData<InfoEntity?> = _apiStatus
+    private val _apiStatus = MutableLiveData<String>()
+    val apiStatus: LiveData<String> = _apiStatus
 
     private val _passList = MutableLiveData<List<PassEntity>>()
     val passList: LiveData<List<PassEntity>> = _passList
@@ -37,6 +35,7 @@ class MainActivityViewModel @Inject constructor(
     private val _hourPasses = MediatorLiveData<List<PassEntity>>()
     val hourPasses: LiveData<List<PassEntity>> = _hourPasses
 
+    private var fetchApiInfoDisposable: Disposable? = null
 
     init {
         _dayPasses.addSource(_passList) {
@@ -69,9 +68,12 @@ class MainActivityViewModel @Inject constructor(
             .addTo(compositeDisposable)
     }
 
-    fun getInfo() {
-        getInfoUseCase()
-            .subscribeBy(onError = { _apiStatus.postValue(null) }) { _apiStatus.postValue(it) }
+    fun onNetworkChanged() {
+        fetchApiInfoDisposable?.dispose()
+        fetchApiInfoDisposable = getInfoUseCase()
+            .subscribeBy(onError = { _apiStatus.postValue("N/A") }) {
+                _apiStatus.postValue(it)
+            }
             .addTo(compositeDisposable)
     }
 }

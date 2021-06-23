@@ -6,11 +6,9 @@ import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.app.migocodetest.R
 import com.app.migocodetest.databinding.ItemApiInfoBinding
-import com.app.migocodetest.domain.entity.info.InfoEntity
 
-class ApiInfoAdapter : ListAdapter<InfoEntity, ApiInfoAdapter.ViewHolder>(diffCallback) {
+class ApiInfoAdapter : ListAdapter<String, ApiInfoAdapter.ViewHolder>(diffCallback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
@@ -29,19 +27,18 @@ class ApiInfoAdapter : ListAdapter<InfoEntity, ApiInfoAdapter.ViewHolder>(diffCa
         RecyclerView.ViewHolder(binding.root) {
         private val tvInfo: TextView = binding.tvInfo
 
-        fun initView(info: InfoEntity) {
-            val context = tvInfo.context
-            tvInfo.text = context.getString(R.string.main_apiInfo_text, info.status, info.message)
+        fun initView(info: String) {
+            tvInfo.text = info
         }
     }
 
     private companion object {
-        private val diffCallback = object : DiffUtil.ItemCallback<InfoEntity>() {
-            override fun areItemsTheSame(oldItem: InfoEntity, newItem: InfoEntity): Boolean {
+        private val diffCallback = object : DiffUtil.ItemCallback<String>() {
+            override fun areItemsTheSame(oldItem: String, newItem: String): Boolean {
                 return oldItem == newItem
             }
 
-            override fun areContentsTheSame(oldItem: InfoEntity, newItem: InfoEntity): Boolean {
+            override fun areContentsTheSame(oldItem: String, newItem: String): Boolean {
                 return oldItem == newItem
             }
         }

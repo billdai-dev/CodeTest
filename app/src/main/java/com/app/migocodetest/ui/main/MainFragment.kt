@@ -72,7 +72,7 @@ class MainFragment : Fragment(), PassAdapter.Listener {
         }
 
         viewModel.apiStatus.observe(viewLifecycleOwner) {
-            if (it == null) {
+            if (it.isNullOrBlank()) {
                 apiInfoAdapter.submitList(null)
             } else {
                 apiInfoAdapter.submitList(listOf(it))

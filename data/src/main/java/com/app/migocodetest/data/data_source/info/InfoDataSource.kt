@@ -1,10 +1,10 @@
 package com.app.migocodetest.data.data_source.info
 
-import com.app.migocodetest.data.dto.info.InfoDto
 import io.reactivex.rxjava3.core.Single
+import okhttp3.ResponseBody
 
 interface InfoDataSource {
-    fun getPublicStatusInfo(): Single<InfoDto>
+    fun getPublicStatusInfo(): Single<ResponseBody>
 
-    fun getPrivateStatusInfo(): Single<InfoDto>
+    fun getPrivateStatusInfo(): Single<ResponseBody>
 }

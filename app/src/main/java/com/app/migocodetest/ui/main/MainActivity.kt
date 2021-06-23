@@ -19,6 +19,8 @@ import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity(), MainFragment.Listener {
+    @Inject
+    lateinit var connectivityManager: ConnectivityManager
     private var binding: ActivityMainBinding? = null
     private val viewModel by viewModels<MainActivityViewModel>()
     private val connectivityReceiver by lazy {
@@ -28,9 +30,9 @@ class MainActivity : AppCompatActivity(), MainFragment.Listener {
                 val networkInfo = connectivityManager.activeNetworkInfo
                 val type = networkInfo?.type
                 if (lastType != type) {
-                    lastType = type
-                    viewModel.getInfo()
+                    viewModel.onNetworkChanged()
                 }
+                lastType = type
             }
         }
     }
@@ -43,6 +45,9 @@ class MainActivity : AppCompatActivity(), MainFragment.Listener {
                 networkCapabilities: NetworkCapabilities
             ) {
                 super.onCapabilitiesChanged(network, networkCapabilities)
+                if (!networkCapabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_VALIDATED)) {
+                    return
+                }
                 val type = when {
                     networkCapabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) -> NetworkCapabilities.TRANSPORT_WIFI
                     networkCapabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) -> NetworkCapabilities.TRANSPORT_CELLULAR
@@ -50,14 +55,19 @@ class MainActivity : AppCompatActivity(), MainFragment.Listener {
                 }
                 if (lastTransportType != type) {
                     lastTransportType = type
-                    viewModel.getInfo()
+                    viewModel.onNetworkChanged()
+                }
+            }
+
+            override fun onLost(network: Network) {
+                super.onLost(network)
+                if (connectivityManager.allNetworks.isNullOrEmpty()) {
+                    lastTransportType = null
+                    viewModel.onNetworkChanged()
                 }
             }
         }
     }
-
-    @Inject
-    lateinit var connectivityManager: ConnectivityManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -91,7 +101,6 @@ class MainActivity : AppCompatActivity(), MainFragment.Listener {
     private fun registerConnectivityCallback() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             connectivityManager.registerDefaultNetworkCallback(connectivityCallback)
-
         } else {
             registerReceiver(
                 connectivityReceiver,
@@ -103,7 +112,6 @@ class MainActivity : AppCompatActivity(), MainFragment.Listener {
     private fun unregisterConnectivityCallback() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             connectivityManager.unregisterNetworkCallback(connectivityCallback)
-
         } else {
             unregisterReceiver(connectivityReceiver)
         }
