@@ -19,7 +19,6 @@ class InfoRepository @Inject constructor(
     @SuppressLint("MissingPermission")
     override fun getInfo(): Single<InfoEntity> {
         return Single.create<List<Int>> { emitter ->
-
             val networks = try {
                 connectivityManager.allNetworks
             } catch (e: RemoteException) {

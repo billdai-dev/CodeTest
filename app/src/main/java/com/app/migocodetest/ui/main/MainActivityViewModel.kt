@@ -1,5 +1,6 @@
 package com.app.migocodetest.ui.main
 
+import android.net.ConnectivityManager
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
@@ -18,6 +19,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MainActivityViewModel @Inject constructor(
+    private val connectivityManager: ConnectivityManager,
     private val getInfoUseCase: GetInfoUseCase,
     private val getPassListObservableUseCase: GetPassListObservableUseCase,
     private val addPassUseCase: AddPassUseCase,
@@ -26,7 +28,7 @@ class MainActivityViewModel @Inject constructor(
     private val compositeDisposable = CompositeDisposable()
 
     private val _apiStatus = MutableLiveData<InfoEntity>()
-    val apiStatus: LiveData<InfoEntity> = _apiStatus
+    val apiStatus: LiveData<InfoEntity?> = _apiStatus
 
     private val _passList = MutableLiveData<List<PassEntity>>()
     val passList: LiveData<List<PassEntity>> = _passList
@@ -43,10 +45,6 @@ class MainActivityViewModel @Inject constructor(
         _hourPasses.addSource(_passList) {
             _hourPasses.postValue(it.filter { it.type == PassEntity.PassType.Hour })
         }
-
-        getInfoUseCase()
-            .subscribeBy { _apiStatus.postValue(it) }
-            .addTo(compositeDisposable)
 
         getPassListObservableUseCase()
             .subscribeBy { _passList.postValue(it) }
@@ -68,6 +66,12 @@ class MainActivityViewModel @Inject constructor(
     fun activatePass(pass: PassEntity) {
         activatePassUseCase(ActivatePassUseCase.Param(pass))
             .subscribeBy {}
+            .addTo(compositeDisposable)
+    }
+
+    fun getInfo() {
+        getInfoUseCase()
+            .subscribeBy(onError = { _apiStatus.postValue(null) }) { _apiStatus.postValue(it) }
             .addTo(compositeDisposable)
     }
 }

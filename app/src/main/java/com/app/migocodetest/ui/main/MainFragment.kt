@@ -72,7 +72,11 @@ class MainFragment : Fragment(), PassAdapter.Listener {
         }
 
         viewModel.apiStatus.observe(viewLifecycleOwner) {
-            apiInfoAdapter.submitList(listOf(it))
+            if (it == null) {
+                apiInfoAdapter.submitList(null)
+            } else {
+                apiInfoAdapter.submitList(listOf(it))
+            }
         }
 
         viewModel.dayPasses.observe(viewLifecycleOwner) {
