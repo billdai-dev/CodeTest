@@ -91,10 +91,11 @@ dependencies {
     testImplementation appTestDependencies.junitKotlin
     testImplementation appTestDependencies.mockito
     testImplementation appTestDependencies.mockitoKotlin
+    testImplementation appTestDependencies.androidxCoreTest
+    testImplementation appTestDependencies.mockitoAndroid
+    testImplementation appTestDependencies.testRunner
+    testImplementation appTestDependencies.androidxTestExt
 
-    androidTestImplementation appTestDependencies.mockitoAndroid
-    androidTestImplementation appTestDependencies.testRunner
-    androidTestImplementation appTestDependencies.androidxTestExt
     androidTestImplementation appTestDependencies.espresso
     androidTestImplementation appTestDependencies.androidAnnotation
 }
