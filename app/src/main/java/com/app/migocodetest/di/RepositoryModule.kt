@@ -15,7 +15,7 @@ import javax.inject.Singleton
 abstract class RepositoryModule {
     @Singleton
     @Binds
-    abstract fun bindInfoRepository(authRepository: InfoRepository): IInfoRepository
+    abstract fun bindInfoRepository(infoRepository: InfoRepository): IInfoRepository
 
     @Singleton
     @Binds
