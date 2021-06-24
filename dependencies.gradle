@@ -8,7 +8,6 @@ ext {
     //Libraries
     kotlinVersion = '2.1.5'
     androidx = '1.2.0'
-    androidAnnotation = '1.1.0'
     androidxCore = '1.5.0'
     androidxFragmentKtx = '1.2.5'
     androidxLifecycle = '2.2.0'
@@ -37,7 +36,6 @@ ext {
     runner = '1.3.0'
     androidxTestExt = '1.1.2'
     androidxCoreTest = '2.1.0'
-    espresso = '3.3.0'
 
     domainDependencies = [
             kotlin  : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version",
@@ -89,9 +87,7 @@ ext {
             mockitoAndroid   : "org.mockito:mockito-android:$mockitoAndroid",
             testRunner       : "androidx.test:runner:$runner",
             androidxTestExt  : "androidx.test.ext:junit:$androidxTestExt",
-            androidxCoreTest  : "androidx.arch.core:core-testing:$androidxCoreTest",
-            espresso         : "androidx.test.espresso:espresso-core:$espresso",
-            androidAnnotation: "androidx.annotation:annotation:$androidAnnotation"
+            androidxCoreTest  : "androidx.arch.core:core-testing:$androidxCoreTest"
     ]
 
     dataDependencies = [
@@ -120,8 +116,6 @@ ext {
             mockitoKotlin    : "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockitoKotlin",
             mockitoAndroid   : "org.mockito:mockito-android:$mockitoAndroid",
             testRunner       : "androidx.test:runner:$runner",
-            androidxTestExt  : "androidx.test.ext:junit:$androidxTestExt",
-            espresso         : "androidx.test.espresso:espresso-core:$espresso",
-            androidAnnotation: "androidx.annotation:annotation:$androidAnnotation"
+            androidxTestExt  : "androidx.test.ext:junit:$androidxTestExt"
     ]
 }

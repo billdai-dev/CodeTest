@@ -95,9 +95,6 @@ dependencies {
     testImplementation appTestDependencies.mockitoAndroid
     testImplementation appTestDependencies.testRunner
     testImplementation appTestDependencies.androidxTestExt
-
-    androidTestImplementation appTestDependencies.espresso
-    androidTestImplementation appTestDependencies.androidAnnotation
 }
 
 kapt {

@@ -61,7 +61,5 @@ dependencies {
     androidTestImplementation dataTestDependencies.mockitoAndroid
     androidTestImplementation dataTestDependencies.testRunner
     androidTestImplementation dataTestDependencies.androidxTestExt
-    androidTestImplementation dataTestDependencies.espresso
-    androidTestImplementation dataTestDependencies.androidAnnotation
 
 }
