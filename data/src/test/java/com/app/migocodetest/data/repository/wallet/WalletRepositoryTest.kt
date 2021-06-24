@@ -3,9 +3,9 @@ package com.app.migocodetest.data.repository.wallet
 import com.app.migocodetest.data.data_source.wallet.WalletLocalDataSource
 import com.app.migocodetest.data.dto.wallet.PassDto
 import com.app.migocodetest.data.mapper.wallet.PassMapper
+import com.app.migocodetest.data.repository.BaseTest
 import com.app.migocodetest.domain.entity.wallet.PassEntity
 import com.app.migocodetest.domain.repository.wallet.IWalletRepository
-import com.app.migocodetest.data.repository.BaseTest
 import com.nhaarman.mockitokotlin2.any
 import com.nhaarman.mockitokotlin2.same
 import com.nhaarman.mockitokotlin2.verify

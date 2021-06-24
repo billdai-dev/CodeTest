@@ -1,6 +1,5 @@
 package com.app.migocodetest.data.data_source.wallet
 
-import android.provider.ContactsContract.CommonDataKinds.Email
 import com.app.migocodetest.data.dto.wallet.PassDto
 import com.app.migocodetest.data.local_storage.database.WalletDao
 import com.app.migocodetest.data.repository.BaseTest

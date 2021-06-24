@@ -3,7 +3,6 @@ package com.app.migocodetest.data.repository.info
 import android.net.ConnectivityManager
 import android.net.Network
 import android.net.NetworkCapabilities
-import android.os.RemoteException
 import com.app.migocodetest.data.data_source.info.InfoRemoteDataSource
 import com.app.migocodetest.data.repository.BaseTest
 import com.app.migocodetest.domain.repository.info.IInfoRepository
