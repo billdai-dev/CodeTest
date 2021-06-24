@@ -53,7 +53,7 @@ class InfoRepositoryTest : BaseTest() {
             .thenReturn(false)
         whenever(mockCellularNetworkCapabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR))
             .thenReturn(true)
-        whenever(mockWifiNetworkCapabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI))
+        whenever(mockCellularNetworkCapabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI))
             .thenReturn(false)
         whenever(mockOtherNetworkCapabilities.hasTransport(any()))
             .thenReturn(false)
