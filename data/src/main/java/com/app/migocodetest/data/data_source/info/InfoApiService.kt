@@ -8,6 +8,6 @@ interface InfoApiService {
     @GET("https://code-test.migoinc-dev.com/status")
     fun getPublicStatusInfo(): Single<ResponseBody>
 
-    @GET("http://192.168.1.1")
+    @GET("http://192.168.2.2/status")
     fun getPrivateStatusInfo(): Single<ResponseBody>
 }
